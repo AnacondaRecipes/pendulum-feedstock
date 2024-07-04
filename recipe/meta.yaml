@@ -13,6 +13,7 @@ source:
 
 build:
   number: 0
+  skip: True [s390x]
   missing_dso_whitelist:
     - '*/libgcc_s.so.1'
     - '*/librt.so.1'
