@@ -75,6 +75,9 @@ extra:
     recipe-maintainers:
       - ianaobi
 
+   skip-lints:
+     - host_section_needs_exact_pinnings
+
   recipe-maintainers:
     - ocefpaf
     - xylar
