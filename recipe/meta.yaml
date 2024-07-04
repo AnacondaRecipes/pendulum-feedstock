@@ -13,7 +13,7 @@ source:
 
 build:
   number: 0
-  skip: True [s390x]
+  skip: True # [s390x]
   missing_dso_whitelist:
     - '*/libgcc_s.so.1'
     - '*/librt.so.1'
@@ -27,7 +27,8 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - maturin >=1.0,<2.0                     # [build_platform != target_platform]
     - {{ compiler('rust') }}
-    - patch
+    - patch    # [not win]
+    - m2-patch # [win]
   host:
     - python
     - maturin >=1.0,<2.0
