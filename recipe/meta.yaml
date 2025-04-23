@@ -1,4 +1,4 @@
-{% set version = "3.0.0" %}
+{% set version = "3.1.0" %}
 
 package:
   name: pendulum
@@ -6,15 +6,13 @@ package:
 
 source:
   url: https://pypi.io/packages/source/p/pendulum/pendulum-{{ version }}.tar.gz
-  sha256: 5d034998dea404ec31fae27af6b22cff1708f830a1ed7353be4d1019bb9f584e
+  sha256: 66f96303560f41d097bee7d2dc98ffca716fbb3a832c4b3062034c2d45865015
 
 build:
   number: 0
-  skip: True  # [py<38]
+  skip: True  # [py<39]
   script:
     - {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation
-  missing_dso_whitelist:  # [s390x]
-    - "$RPATH/ld64.so.1"  # [s390x]
 
 requirements:
   build:
@@ -30,9 +28,6 @@ requirements:
     - python
     - python-dateutil >=2.6
     - python-tzdata >=2020.1
-    - backports.zoneinfo >=0.2.1  # [py<39]
-    - time-machine >=2.6.0
-    - importlib-resources >=5.9.0  # [py<39]
 
 test:
   requires:
