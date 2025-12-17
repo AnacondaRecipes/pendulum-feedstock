@@ -5,12 +5,12 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/p/pendulum/pendulum-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/p/pendulum/pendulum-{{ version }}.tar.gz
   sha256: 66f96303560f41d097bee7d2dc98ffca716fbb3a832c4b3062034c2d45865015
 
 build:
-  number: 0
-  skip: True  # [py<39]
+  number: 1
+  skip: true  # [py<39]
   script:
     - {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation
 
