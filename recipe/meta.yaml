@@ -1,21 +1,22 @@
-{% set version = "3.1.0" %}
+{% set version = "3.2.0" %}
 
 package:
   name: pendulum
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/p/pendulum/pendulum-{{ version }}.tar.gz
-  sha256: 66f96303560f41d097bee7d2dc98ffca716fbb3a832c4b3062034c2d45865015
+  url: https://pypi.org/packages/source/p/pendulum/pendulum-{{ version }}.tar.gz
+  sha256: e80feda2d10fa3ff8b1526715f7d33dcb7e08494b3088f2c8a3ac92d4a4331ce
 
 build:
   number: 0
-  skip: True  # [py<39]
+  skip: true  # [py<39]
   script:
     - {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation
 
 requirements:
   build:
+    - {{ stdlib('c') }}
     - {{ compiler('c') }}
     - {{ compiler('rust') }}
   host:
