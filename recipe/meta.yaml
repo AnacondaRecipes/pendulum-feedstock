@@ -13,6 +13,8 @@ build:
   skip: true  # [py<39]
   script:
     - {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation
+  missing_dso_whitelist:
+    - lib/libgcc_s.so.1  # [linux]
 
 requirements:
   build:
@@ -28,6 +30,7 @@ requirements:
     - python
     - python-dateutil >=2.6
     - python-tzdata >=2020.1
+    - libgcc-ng                  # [linux]
 
 test:
   requires:
