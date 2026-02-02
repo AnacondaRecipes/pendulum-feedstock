@@ -34,7 +34,6 @@ requirements:
     - python
     - python-dateutil >=2.6
     - python-tzdata >=2020.1
-    - libgcc-ng                  # [linux]
 
 test:
   requires:
