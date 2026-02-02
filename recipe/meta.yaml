@@ -18,12 +18,9 @@ build:
 
 requirements:
   build:
-    - {{ stdlib('c') }}
-    - {{ compiler('rust') }}      # [unix]
-    # On Windows we use rust-gnu (MinGW/m2w64) instead of rust (MSVC) to avoid
-    # pulling in vs_win-64 2019.11, which conflicts with the aggregate pin of
-    # vs_win-64 2022.14.
-    - {{ compiler('rust-gnu') }} # [win]
+    # Do not use stdlib('c') on Windows, as it clashes with the current rust 1.89.0.
+    - {{ stdlib('c') }}  # [not win]
+    - {{ compiler('rust') }}
   host:
     - python
     - pip
