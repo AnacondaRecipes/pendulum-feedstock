@@ -1,4 +1,4 @@
-{% set version = "3.2.0" %}
+{% set version = "3.3.0" %}
 
 package:
   name: pendulum
@@ -6,11 +6,11 @@ package:
 
 source:
   url: https://pypi.org/packages/source/p/pendulum/pendulum-{{ version }}.tar.gz
-  sha256: e80feda2d10fa3ff8b1526715f7d33dcb7e08494b3088f2c8a3ac92d4a4331ce
+  sha256: 9aceb5b24e9f55381df08187397e88546b5ba82f698b741cbf1a05c5e2369116
 
 build:
   number: 0
-  skip: true  # [py<39]
+  skip: true  # [py<310]
   script:
     - {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation
   missing_dso_whitelist:
@@ -25,12 +25,12 @@ requirements:
     - python
     - pip
     - maturin >=1.0,<2.0
-    - setuptools
-    - wheel
+    - poetry-core
   run:
     - python
     - python-dateutil >=2.6
     - python-tzdata >=2020.1
+    - tzdata >=2020.1
 
 test:
   requires:
